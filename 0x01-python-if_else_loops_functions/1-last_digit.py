@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+"""
+prints the last digit of random numbers
+and check if 0, less than 6 or greater than 5
+"""
+
 import random
 number = random.randint(-10000, 10000)
 

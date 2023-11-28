@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+"""
+prints random number and indicates
+if positive, negative or zero
+"""
 import random
 number = random.randint(-10, 10)
 
