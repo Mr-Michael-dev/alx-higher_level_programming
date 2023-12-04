@@ -2,7 +2,7 @@
 
 def multiple_returns(sentence):
     """Returns a tuple with the length of a string and its first character."""
-    my_tuple = tuple(sentencei)
+    my_tuple = tuple(sentence)
     length = len(my_tuple)
 
     if length == 0:
