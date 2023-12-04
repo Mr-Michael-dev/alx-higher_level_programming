@@ -2,9 +2,11 @@
 def add_tuple(tuple_a=(), tuple_b=()):
     """Write a function that adds 2 tuples
     Returns a tuple with 2 integers:
-    The first element should be the addition of the first element of each argument
-    The second element should be the addition of the second element of each argument
-""" 
+    The first element should be the addition of
+    the first element of each argument
+    The second element should be the addition of
+    the second element of each argument
+    """
     if tuple_a is None and tuple_b is None:
         return None
     if len(tuple_a) == 1:
