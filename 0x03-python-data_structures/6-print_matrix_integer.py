@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-
-
 def print_matrix_integer(matrix=[[]]):
-    """prints a matrix of integers
-    matrix: matrix to be printed
-    """
+    """prints a matrix of integers"""
     if matrix is None:
         print(None)
-    for i in matrix:
-        for j in i:
-            print("{}".format(j), end=" ")
-        print()
+    else:
+        for row in matrix:
+            for num in row:
+                print("{}".format(j), end=" ")
+            print()
