@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 
 def list_division(my_list_1, my_list_2, list_length):
+    """divides element in list 1 by element in list 2
+
+    args:
+        my_list_1: first list
+        my_list_2: second list
+        list_length: list length - can be bigger than the 2 list
+
+    Return: a new list containing dividends
+    """
 
     new_list = []
     for i in range(list_length):
