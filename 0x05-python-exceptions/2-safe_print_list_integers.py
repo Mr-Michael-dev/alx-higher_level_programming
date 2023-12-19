@@ -19,7 +19,7 @@ def safe_print_list_integers(my_list=[], x=0):
             try:
                 print("{:d}".format(element), end="")
                 int_printed += 1
-            except ValueError:
+            except (ValueError, TypeError):
                 pass
     finally:
         print()
