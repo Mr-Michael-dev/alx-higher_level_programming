@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 
 def safe_print_integer_err(value):
 
@@ -10,8 +11,8 @@ def safe_print_integer_err(value):
     Returns: True if printed or False otherwise
     """
     try:
-        print("{:d}".format(int(value)))
+        print("{:d}".format(value))
         return True
     except (ValueError, TypeError) as err:
-        print("Exception: {}".format(err))
+        print("Exception: {}".format(err), file=sys.stderr)
         return False
