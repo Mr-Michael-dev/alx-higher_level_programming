@@ -6,5 +6,6 @@
     no  attributes and no property
 """
 
+
 class Square:
     pass
