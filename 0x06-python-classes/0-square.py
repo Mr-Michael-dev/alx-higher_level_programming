@@ -6,9 +6,9 @@
 
 
 class Square:
-	"""
-	This class represents a square.
+    """
+    This class represents a square.
 
-	It currently has no attributes and no property
-	"""
+    It currently has no attributes and no property
+    """
     pass
