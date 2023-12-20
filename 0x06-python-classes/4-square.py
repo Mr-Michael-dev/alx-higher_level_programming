@@ -11,7 +11,11 @@ class Square:
 
     - size: the size of the square
 
-    It has an instantiation method with type/value verification.
+    Methods:
+    Instantiation method with type/value verification.
+    Area method which returns area of square
+    Size method to access the private attribute __size
+    Size method to set the private attribute with verification
     """
 
     def __init__(self, size=0):
@@ -37,3 +41,24 @@ class Square:
         the current square area
         """
         return self.__size * self.__size
+
+    def size(self):
+        """
+        gets the size attribute
+        """
+        return self.__size
+
+    def size(self, value):
+        """
+        Sets the value of private attribute
+
+        Raises:
+        - TypeError: If size is not an integer.
+        - ValueError: If size is less than 0.
+        """
+        if isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
