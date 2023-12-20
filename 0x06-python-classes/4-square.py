@@ -42,13 +42,13 @@ class Square:
         """
         return self.__size * self.__size
 
-    def size(self):
+    def get_size(self):
         """
         gets the size attribute
         """
         return self.__size
 
-    def size(self, value):
+    def set_size(self, value):
         """
         Sets the value of private attribute
 
