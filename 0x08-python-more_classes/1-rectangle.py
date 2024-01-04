@@ -17,13 +17,23 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """
         Instantiates with optional width and height
-
-        width: the width of the rectangle
-        height: the height of the rectangle
+        Raises:
+        - TypeError: If size is not an integer.
+        - ValueError: If size is less than 0.
         """
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width < 0:
+            raise ValueError("width must be >= 0")
+        else:
+            self.__width = width
 
-        self.width = width
-        self.height = height
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height < 0:
+            raise ValueError("height must be >= 0")
+        else:
+            self.__height = height
 
     @property
     def width(self):
@@ -36,8 +46,12 @@ class Rectangle:
     def width(self, value):
         """
         sets the width of the rectangle
+
+        Raises:
+        - TypeError: If width is not an integer.
+        - ValueError: If width is less than 0.
         """
-        if not int(value):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
@@ -55,8 +69,12 @@ class Rectangle:
     def height(self, value):
         """
         sets the height of the rectangle
+
+        Raises:
+        - TypeError: If height is not an integer.
+        - ValueError: If height is less than 0.
         """
-        if not int(value):
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
