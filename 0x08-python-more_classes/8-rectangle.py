@@ -142,7 +142,7 @@ class Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
 
         if not hasattr(rect_1, 'area') or not hasattr(rect_2, 'area'):
-            raise AttributeError("Rectangle instances must have an 'area' attribute")
+            raise AttributeError("Instances must have an 'area' attribute")
 
         if rect_1.area() >= rect_2.area():
             return rect_1
