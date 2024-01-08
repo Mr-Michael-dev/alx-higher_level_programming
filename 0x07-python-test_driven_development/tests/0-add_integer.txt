@@ -45,4 +45,13 @@ Since ``+`` does not operate with integers and stringsTypeError is raised
     ...
     TypeError: a must be an integer
 
+Float Overflow
+==============
+    >>> add_integer(1e308, 1)
+    inf
 
+Handling Float NaN
+===================
+    >>> import math
+    >>> math.isnan(add_integer(float('nan'), 1))
+    True
