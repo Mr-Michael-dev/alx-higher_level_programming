@@ -9,12 +9,12 @@ using the ``+`` operator.
 
 Integers and floats
 ====================
-    >>> from 0x07-python-test_driven_development.0-add_integer import add_integer
+    >>> add_integer = __import__('0-add_integer').add_integer
     >>> add_integer(1, 2)
     3
 
     >>> add_integer(2.0, 6)
-    8.0
+    8
 
     >>> add_integer(8, -2)
     6
