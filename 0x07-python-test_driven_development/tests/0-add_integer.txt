@@ -1,0 +1,54 @@
+==========================
+How to use 0-add_integer.py
+=========================
+
+This module has just one function ``add_integer()``.
+
+``add_integer()`` returns the sum of its arguments equivalent to
+using the ``+`` operator.
+
+Integers and floats
+====================
+    >>> from 0x07-python-test_driven_development.0-add_integer import add_integer
+    >>> add_integer(1, 2)
+    3
+
+    >>> add_integer(2.0, 6)
+    8.0
+
+    >>> add_integer(8, -2)
+    6
+
+passing only one argument
+    >>> add_integer(2)
+    100
+
+    >>> add_integer(-8)
+    90
+
+passing no argument
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Non-numbers
+============
+Since ``+`` does not operate with integers and stringsTypeError is raised
+
+    >>> add_integer(2, 'hello')
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer('hi', 45)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer('hi')
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+
