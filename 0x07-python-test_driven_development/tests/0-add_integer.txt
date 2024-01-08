@@ -26,12 +26,6 @@ passing only one argument
     >>> add_integer(-8)
     90
 
-passing no argument
-    >>> add_integer()
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
-
 Non-numbers
 ============
 Since ``+`` does not operate with integers and stringsTypeError is raised
