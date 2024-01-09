@@ -10,6 +10,7 @@ class BaseGeometry:
 
     Methods:
     Area raises an exception
+    integer_validator validates the value passed to it
     """
 
     def area(self):
@@ -33,3 +34,30 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
         if self.value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
+
+class Rectangle(BaseGeometry):
+    """
+    This class represents a rectangle
+    and inherits from BaseGeometry
+
+    Attributes:
+        width - width of the rectangle
+        height - height of the rectangle
+
+    Methods:
+    Instantiation with width and height
+    """
+
+    def __init__(self, width, height):
+        """
+        initializes the rectangle with width and height
+
+        Args:
+            width - width of the rectangle
+            height - height of the rectangle
+        """
+        BaseGeometry.integer_validator("width", self.width)
+        BaseGeometry.integer_validator("height", self.height)
+        self.__width = width
+        self.__height = height
