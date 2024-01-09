@@ -1,0 +1,27 @@
+=========================================
+How to use BaseGeometry.integer_validator
+=========================================
+
+''integer_validator()'' accepts two arguments. It validate the second argument checking if its an integer and greater than 0.
+
+=============
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+
+passing string to value
+	>>> bg.integer_validator("width", 'Ten')
+	Traceback (most recent call last):
+	...
+	TypeError: <name> must be an integer
+
+passing 0 to value
+	>>> bg.integer_validator("width", 0)
+	Traceback (most recent call last):
+        ...
+        ValueError: <name> must be greater than 0
+
+passing negative value
+	>>> bg.integer_validator("width", -5)
+	Traceback (most recent call last):
+        ...
+        ValueError: <name> must be greater than 0
