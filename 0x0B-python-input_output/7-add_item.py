@@ -15,8 +15,7 @@ args = sys.argv
 
 # check number of arguments
 if len(args) < 2:
-    print("Error: Usage: {} <items to add>".format(args[0]), file=sys.stderr)
-    exit()
+    pass
 
 filename = "add_item.json"
 i = 1
