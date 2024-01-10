@@ -36,9 +36,14 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a student instance
+        If attrs is a list of strings,
+        only attribute names contained in this list must be retrieved.
+
+        args:
+            attrs: list of attributes
 
         Returns:
             A dictionary
@@ -49,6 +54,11 @@ class Student:
 
         for attr_name, attr_value in attributes.items():
             if isinstance(attr_value, (dict, list, int, str, bool)):
-                my_dict[attr_name] = attr_value
+                if isinstance(attrs, list):
+                    for name in attrs:
+                        if name == attr_name:
+                            my_dict[attr_name] = attr_value
+                else:
+                    my_dict[attr_name] = attr_value
 
         return my_dict
