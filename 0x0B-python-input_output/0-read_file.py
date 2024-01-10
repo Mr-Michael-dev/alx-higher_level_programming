@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module reads a text file and pront to stdout
+This module reads a text file and print to stdout
 """
 
 
