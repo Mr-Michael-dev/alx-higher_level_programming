@@ -16,11 +16,11 @@ def class_to_json(obj):
     # Dictionary to store serialized attributes
     serialized_dict = {}
 
-    # Iterate over all attributes of the object
-    for attr_name in dir(obj):
-        # Get the attribute value
-        attr_value = getattr(obj, attr_name)
+    # Get the instance variables using __dict__
+    instance_vars = obj.__dict__
 
+    # Iterate over all attributes of the object
+    for attr_name, attr_value in instance_vars.items():
         # Check if the attribute is serializable
         if isinstance(attr_value, (list, dict, str, int, bool)):
             # Add the attribute to the serialized dictionary
