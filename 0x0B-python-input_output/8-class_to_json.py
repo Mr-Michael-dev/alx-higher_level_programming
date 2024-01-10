@@ -20,13 +20,13 @@ def class_to_json(obj):
     # Iterate over all attributes of the object
     for attr_name in dir(obj):
         # Exclude private attributes and methods
-        #if not attr_name.startswith('_'):
-        # Get the attribute value
-        attr_value = getattr(obj, attr_name)
+        if not attr_name.startswith('_'):
+            # Get the attribute value
+            attr_value = getattr(obj, attr_name)
 
-        # Check if the attribute is serializable
-        if isinstance(attr_value, (list, dict, str, int, bool)):
-            # Add the attribute to the serialized dictionary
-            serialized_dict[attr_name] = attr_value
+            # Check if the attribute is serializable
+            if isinstance(attr_value, (list, dict, str, int, bool)):
+                # Add the attribute to the serialized dictionary
+                serialized_dict[attr_name] = attr_value
 
     return serialized_dict
