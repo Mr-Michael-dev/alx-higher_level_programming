@@ -3,6 +3,7 @@
 This module is a custom serialization function for obj
 """
 
+
 def class_to_json(obj):
     """
     Generates a dictionary representation of an object
@@ -27,4 +28,3 @@ def class_to_json(obj):
             serialized_dict[attr_name] = attr_value
 
     return serialized_dict
-
