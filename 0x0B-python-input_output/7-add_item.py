@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module adds all arguments to a Python list,
-and then save them to a json file
+    This module adds all arguments to a Python list,
+    and then save them to a json file
 """
 
 
@@ -14,6 +14,7 @@ save_json = __import__('5-save_to_json_file').save_to_json_file
 
 
 args = sys.argv
+
 # check number of arguments
 if len(args) < 2:
     print("Error: Usage: {} <items to add>".format(args[0]), file=sys.stderr)
