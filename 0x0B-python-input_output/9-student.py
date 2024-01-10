@@ -32,9 +32,6 @@ class Student:
             age (int): age of student
         """
 
-        # if not isinstance(age, int) or age <= 0:
-            # raise TypeError("age must be an integer and greater than 0")
-        # else:
         self.age = age
         self.first_name = first_name
         self.last_name = last_name
