@@ -112,3 +112,12 @@ class Square(Rectangle):
             - Area of the square (size * size)
         """
         return self.__size ** 2
+
+    def __str__(self):
+        """
+        Returns a string representation of the square
+
+        Returns:
+            - String representation: [Square] <size>/<size>
+        """
+        return f"[Square] {self.__size}/{self.__size}"
