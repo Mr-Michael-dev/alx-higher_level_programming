@@ -2,9 +2,8 @@
 """
 This module provides function for working with JSON files
 """
-
-
 import json
+
 
 def load_from_json_file(filename):
     """
