@@ -28,7 +28,6 @@ class TestRectangle(unittest.TestCase):
         """
         Base._Base__nb_objects = 0
 
-
     def test_rectangle_is_subclass(self):
         """Test if rectangle is subclass of Base"""
         self.assertTrue(issubclass(Rectangle, Base), "Not a subclass of Base")
@@ -53,3 +52,27 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.y, 4)
         self.assertEqual(self.r3.width, 7)
         self.assertEqual(self.r3.height, 5)
+
+    def test_raise_TypeError(self):
+        """
+        Tests if TypeError is raised for non-integer inputs.
+        """
+        with self.assertRaises(TypeError):
+            r5 = Rectangle("a", 5)
+            r6 = Rectangle(4, "d")
+            self.r3.x = "5"  # String
+            self.r3.y = "bar"  # String
+            self.r3.width = "a"  # String
+            self.r3.height = "b"  # String
+
+    def test_raise_ValueError(self):
+        """
+        Tests if ValueError is raised for invalid values.
+        """
+        with self.assertRaises(ValueError):
+            r7 = Rectangle(0, 5)  # Width should be > 0
+            r8 = Rectangle(6, -3)  # Height should be > 0
+            self.r3.x = -5  # X should be >= 0
+            self.r3.y = -1  # Y should be >= 0
+            self.r3.width = -4  # Width should be > 0
+            self.r3.height = 0  # Height should be > 0
