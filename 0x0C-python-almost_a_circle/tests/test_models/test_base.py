@@ -19,8 +19,11 @@ class TestBase(unittest.TestCase):
         self.base_inst_5 = Base()
 
     def tearDown(self):
-        """This method literraly does nothing"""
-        pass
+        """
+        Resets the ID counter to its initial state in the Base class.
+        """
+        Base._Base__nb_objects = 0
+
 
     def test_id(self):
         """
