@@ -119,3 +119,12 @@ class Rectangle(Base):
     def y(self, value):
         self.x_and_y_validator("y", value)
         self.__y = value
+
+    def area(self):
+        """
+        computes the area of Rectangle
+
+        Returns:
+            The product of width and height
+        """
+        return (self.width * self.height)

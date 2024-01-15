@@ -76,3 +76,13 @@ class TestRectangle(unittest.TestCase):
             self.r3.y = -1  # Y should be >= 0
             self.r3.width = -4  # Width should be > 0
             self.r3.height = 0  # Height should be > 0
+
+    def test_area(self):
+        """Test for correct area of rectangle"""
+        self.assertEqual(self.r1.area(), 12)
+        self.assertEqual(self.r2.area(), 24)
+
+        self.r3.width = 7
+        self.r3.height = 9
+
+        self.assertEqual(self.r3.area(), 63)
