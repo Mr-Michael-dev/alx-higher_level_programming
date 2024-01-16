@@ -5,12 +5,14 @@ from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
 
+
 class TestRectangleClass(unittest.TestCase):
     """Tests for the Rectangle class itself."""
 
     def test_is_subclass_of_base(self):
         """Test if Rectangle is a subclass of Base."""
         self.assertTrue(issubclass(Rectangle, Base))
+
 
 class TestRectangleInstances(unittest.TestCase):
     """
@@ -122,6 +124,68 @@ class TestRectangleInstances(unittest.TestCase):
         self.r9.width = 4
 
         self.assertNotEqual(str(self.r9), "[Rectangle] (10) 2/2 - 6/3")
+
+    def test_update_with_arg(self):
+        """
+        Test if update method correctly updates the rectangle with *args
+        """
+
+        r10 = Rectangle(6, 3, 1, 1, 76)
+
+        self.assertEqual(str(r10), "[Rectangle] (76) 1/1 - 6/3")
+
+        r10.update()
+        self.assertEqual(str(r10), "[Rectangle] (76) 1/1 - 6/3")
+
+        r10.update(68)
+        self.assertEqual(str(r10), "[Rectangle] (68) 1/1 - 6/3")
+
+        r10.update(68, 4)
+        self.assertEqual(str(r10), "[Rectangle] (68) 1/1 - 4/3")
+
+        r10.update(68, 4, 7)
+        self.assertEqual(str(r10), "[Rectangle] (68) 1/1 - 4/7")
+
+        r10.update(68, 4, 7, 2)
+        self.assertEqual(str(r10), "[Rectangle] (68) 2/1 - 4/7")
+
+        r10.update(68, 4, 7, 2, 3)
+        self.assertEqual(str(r10), "[Rectangle] (68) 2/3 - 4/7")
+
+        my_tuple = (10, 2, 4, 6, 8)
+        r10.update(*my_tuple)
+        self.assertEqual(str(r10), "[Rectangle] (10) 6/8 - 2/4")
+
+    def test_update_with_kwargs(self):
+        """
+        Test if update correctly updates rectangle with **kwargs
+        """
+
+        r11 = Rectangle(9, 6, 2, 2, 53)
+        self.assertEqual(str(r11), "[Rectangle] (53) 2/2 - 9/6")
+
+        r11.update()
+        self.assertEqual(str(r11), "[Rectangle] (53) 2/2 - 9/6")
+
+        r11.update(id=45)
+        self.assertEqual(str(r11), "[Rectangle] (45) 2/2 - 9/6")
+
+        r11.update(width=5)
+        self.assertEqual(str(r11), "[Rectangle] (45) 2/2 - 5/6")
+
+        r11.update(height=3)
+        self.assertEqual(str(r11), "[Rectangle] (45) 2/2 - 5/3")
+
+        r11.update(x=1)
+        self.assertEqual(str(r11), "[Rectangle] (45) 1/2 - 5/3")
+
+        r11.update(y=0)
+        self.assertEqual(str(r11), "[Rectangle] (45) 1/0 - 5/3")
+
+        my_dict = {"width": 6, "height": 4, "x": 3, "y": 4, "id": 26}
+
+        r11.update(**my_dict)
+        self.assertEqual(str(r11), "[Rectangle] (26) 3/4 - 6/4")
 
 
 if __name__ == '__main__':
