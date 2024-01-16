@@ -21,6 +21,7 @@ class Rectangle(Base):
         x_and_y_validator(name, value): Validates if the value is an int >= 0
         area(): computes the area of rectangle
         display(): prints in stdout the rectangle instance with character '#'
+        __str__(): returns formatted string representation of rectangle
     """
 
     __width = 0
@@ -141,3 +142,11 @@ class Rectangle(Base):
             for j in range(self.width):
                 print(print_symbol, end="")
             print()
+
+    def __str__(self):
+        """Returns string representation of rectangle"""
+
+        _str = f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+ - {self.width}/{self.height}"
+
+        return _str

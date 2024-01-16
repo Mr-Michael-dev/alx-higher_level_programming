@@ -1,18 +1,20 @@
+import unittest
+from unittest.mock import patch
+from io import StringIO
+
 from models.rectangle import Rectangle
 from models.base import Base
-import unittest
 
+class TestRectangleClass(unittest.TestCase):
+    """Tests for the Rectangle class itself."""
 
-class TestRectangle(unittest.TestCase):
+    def test_is_subclass_of_base(self):
+        """Test if Rectangle is a subclass of Base."""
+        self.assertTrue(issubclass(Rectangle, Base))
+
+class TestRectangleInstances(unittest.TestCase):
     """
-    Test for rectangle features
-
-    Methods:
-        setUp(self): sets the fixture
-        tearDown(self): does nothing
-        test_rectangle_is_subclass(self):
-        test_id(self):
-        test_setter_and_getter(self):
+    Test for rectangle instances
     """
 
     def setUp(self):
@@ -21,6 +23,7 @@ class TestRectangle(unittest.TestCase):
         self.r2 = Rectangle(6, 4)
         self.r3 = Rectangle(7, 5, 0, 0, 8)
         self.r4 = Rectangle(8, 3)
+        self.r9 = Rectangle(6, 3, 2, 2, 10)
 
     def tearDown(self):
         """
@@ -28,12 +31,8 @@ class TestRectangle(unittest.TestCase):
         """
         Base._Base__nb_objects = 0
 
-    def test_rectangle_is_subclass(self):
-        """Test if rectangle is subclass of Base"""
-        self.assertTrue(issubclass(Rectangle, Base), "Not a subclass of Base")
-
-    def test_id(self):
-        """Test for instance id"""
+    def test_id_assignment(self):
+        """Test if IDs are assigned correctly"""
         self.assertEqual(self.r1.id, 1)
         self.assertEqual(self.r2.id, 2)
         self.assertEqual(self.r3.id, 8)
@@ -78,7 +77,7 @@ class TestRectangle(unittest.TestCase):
             self.r3.height = 0  # Height should be > 0
 
     def test_area(self):
-        """Test for correct area of rectangle"""
+        """Test if the area is calculated correctly"""
         self.assertEqual(self.r1.area(), 12)
         self.assertEqual(self.r2.area(), 24)
 
@@ -87,29 +86,31 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(self.r3.area(), 63)
 
-    def test_display(self):
-        """Test if display printed out correct output"""
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_display_output(self, mock_stdout):
+        """Test if display method output correct rectangle"""
         # Create a Rectangle instance
         r = Rectangle(3, 4)
-
-        # Redirect stdout to capture the printed output
-        from io import StringIO
-        import sys
-        captured_output = StringIO()
-        sys.stdout = captured_output
 
         # Call the display method
         r.display()
 
-        # Reset redirect.
-        sys.stdout = sys.__stdout__
-
-        # Get the printed output
-        printed_output = captured_output.getvalue().strip()
+        # Get the printed output from mock_stdout
+        printed_output = mock_stdout.getvalue().strip()
 
         # Assert the printed output matches the expected result
         expected_output = "###\n###\n###\n###"
         self.assertEqual(printed_output, expected_output)
+
+    def test__str__(self):
+        """Test return value of __str__ method"""
+        self.assertEqual(str(self.r9), "[Rectangle] (10) 2/2 - 6/3")
+
+        self.r9.x = 1
+        self.r9.y = 3
+        self.r9.width = 4
+
+        self.assertNotEqual(str(self.r9), "[Rectangle] (10) 2/2 - 6/3")
 
 
 if __name__ == '__main__':
