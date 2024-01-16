@@ -138,10 +138,11 @@ class Rectangle(Base):
         """
         print_symbol = '#'
 
-        for i in range(self.height):
-            for j in range(self.width):
-                print(print_symbol, end="")
+        for _ in range(self.y):
             print()
+
+        for i in range(self.height):
+            print(" " * self.x + print_symbol * self.width)  # Print single row
 
     def __str__(self):
         """Returns string representation of rectangle"""

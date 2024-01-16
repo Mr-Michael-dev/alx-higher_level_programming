@@ -102,6 +102,17 @@ class TestRectangleInstances(unittest.TestCase):
         expected_output = "###\n###\n###\n###"
         self.assertEqual(printed_output, expected_output)
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_display_coordinates(self, mock_stdout):
+        """Test if display method output correct cordinates"""
+        r = Rectangle(5, 2, 3, 2)
+        r.display()
+
+        printed_output = mock_stdout.getvalue().rstrip()
+        expected_output = "\n\n   #####\n   #####"
+
+        self.assertEqual(printed_output, expected_output)
+
     def test__str__(self):
         """Test return value of __str__ method"""
         self.assertEqual(str(self.r9), "[Rectangle] (10) 2/2 - 6/3")
