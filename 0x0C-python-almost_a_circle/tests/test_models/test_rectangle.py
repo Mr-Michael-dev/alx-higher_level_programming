@@ -86,3 +86,31 @@ class TestRectangle(unittest.TestCase):
         self.r3.height = 9
 
         self.assertEqual(self.r3.area(), 63)
+
+    def test_display(self):
+        """Test if display printed out correct output"""
+        # Create a Rectangle instance
+        r = Rectangle(3, 4)
+
+        # Redirect stdout to capture the printed output
+        from io import StringIO
+        import sys
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        # Call the display method
+        r.display()
+
+        # Reset redirect.
+        sys.stdout = sys.__stdout__
+
+        # Get the printed output
+        printed_output = captured_output.getvalue().strip()
+
+        # Assert the printed output matches the expected result
+        expected_output = "###\n###\n###\n###"
+        self.assertEqual(printed_output, expected_output)
+
+
+if __name__ == '__main__':
+    unittest.main()

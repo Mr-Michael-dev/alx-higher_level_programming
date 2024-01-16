@@ -19,6 +19,8 @@ class Rectangle(Base):
         __init__(): instantiation method
         int_validator(name, value): Validates if the value is an integer > 0
         x_and_y_validator(name, value): Validates if the value is an int >= 0
+        area(): computes the area of rectangle
+        display(): prints in stdout the rectangle instance with character '#'
     """
 
     __width = 0
@@ -128,3 +130,14 @@ class Rectangle(Base):
             The product of width and height
         """
         return (self.width * self.height)
+
+    def display(self):
+        """
+        prints to stdout the rectangle instance with character '#'
+        """
+        print_symbol = '#'
+
+        for i in range(self.height):
+            for j in range(self.width):
+                print(print_symbol, end="")
+            print()
