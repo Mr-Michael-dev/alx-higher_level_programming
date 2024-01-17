@@ -123,9 +123,10 @@ class TestSquareleInstances(unittest.TestCase):
 
         self.assertNotEqual(str(self.s9), "[Square] (10) 2/2 - 6")
 
-"""
     def test_update_with_arg(self):
-        # Test if update method correctly updates the rectangle with *args
+        """
+        Test if update method correctly updates the rectangle with *args
+        """
 
         r10 = Rectangle(6, 3, 1, 1, 76)
 
@@ -154,7 +155,9 @@ class TestSquareleInstances(unittest.TestCase):
         self.assertEqual(str(r10), "[Rectangle] (10) 6/8 - 2/4")
 
     def test_update_with_kwargs(self):
-        # Test if update correctly updates rectangle with **kwargs
+        """
+        Test if update correctly updates rectangle with **kwargs
+        """
 
         r11 = Rectangle(9, 6, 2, 2, 53)
         self.assertEqual(str(r11), "[Rectangle] (53) 2/2 - 9/6")
@@ -181,7 +184,7 @@ class TestSquareleInstances(unittest.TestCase):
 
         r11.update(**my_dict)
         self.assertEqual(str(r11), "[Rectangle] (26) 3/4 - 6/4")
-"""
+
 
 if __name__ == '__main__':
     unittest.main()

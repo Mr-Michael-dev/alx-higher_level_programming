@@ -41,3 +41,54 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Updates square attributes with arguments supplied.
+        If args is present and not empty, skip kwargs
+
+        Args:
+            *args: variable number of arguments
+                - If one argument is provided, assume it's the id.
+                - If more than one argument is provided,
+                update id, size, x, and y in order.
+            **kwargs: a dictionary of keywords and value
+            """
+
+        if args and len(args) > 0:
+            """update attributes base on args"""
+            # Update id if at least one argument is provided
+            super().__init__(args[0])
+
+            if len(args) >= 2:
+                # Update width and height if at least two arguments provided
+                self.int_validator("size", args[1])
+                self.__width = args[1]
+                self.__height = args[2]
+
+            if len(args) >= 3:
+                # Update x if at least four arguments are provided
+                self.x_and_y_validator("x", args[3])
+                self.__x = args[3]
+
+            if len(args) >= 4:
+                # Update y if at least five arguments are provided
+                self.x_and_y_validator("y", args[4])
+                self.__y = args[4]
+        elif kwargs:
+            # Update attributes based on kwargs
+            for key, value in kwargs.items():
+                if key == 'id':
+                    super().__init__(value)  # Update id
+                elif key == 'size':
+                    self.int_validator("size", value)
+                    self.__width = value
+                    self.__height = value
+                elif key == 'x':
+                    self.x_and_y_validator("x", value)
+                    self.__x = value
+                elif key == 'y':
+                    self.x_and_y_validator("y", value)
+                    self.__y = value
+        else:
+            pass
