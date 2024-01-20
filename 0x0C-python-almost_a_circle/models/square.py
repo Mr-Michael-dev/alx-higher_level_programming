@@ -90,7 +90,7 @@ class Square(Rectangle):
                     self.y = value
         else:
             pass
-    
+
     def to_dictionary(self):
         """
         Reeturns the dictionary representation of Square
