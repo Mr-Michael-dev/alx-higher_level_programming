@@ -187,6 +187,22 @@ class TestRectangleInstances(unittest.TestCase):
         r11.update(**my_dict)
         self.assertEqual(str(r11), "[Rectangle] (26) 3/4 - 6/4")
 
+    def test_rectangle_to_dict(self):
+        """
+        Test for the return value of to_dictionary.
+        
+        Dictionary must contain id, width, height, x and y attributes
+        """
+        r13 = Rectangle(7, 5, 1, 2, 8)
+        rect_dict = r13.to_dictionary()
+        my_dict = {'id': 8, 'width': 7, 'height': 5, 'x': 1, 'y': 2}
+        self.assertDictEqual(rect_dict, my_dict)
+
+        r13.update(width=3)
+        rect_dict_2 = r13.to_dictionary()
+        my_dict_2 = {'id': 8, 'width': 3, 'height': 5, 'x': 1, 'y': 2}
+        self.assertTrue(rect_dict_2, my_dict_2)
+
 
 if __name__ == '__main__':
     unittest.main()
