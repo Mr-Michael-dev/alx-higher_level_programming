@@ -203,6 +203,9 @@ class TestRectangleInstances(unittest.TestCase):
         my_dict_2 = {'id': 8, 'width': 3, 'height': 5, 'x': 1, 'y': 2}
         self.assertTrue(rect_dict_2, my_dict_2)
 
+        r14 = (rect_dict_2)
+        self.assertNotEqual(r14, r13)
+
 
 if __name__ == '__main__':
     unittest.main()

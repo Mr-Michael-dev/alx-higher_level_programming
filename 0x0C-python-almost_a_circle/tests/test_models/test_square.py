@@ -179,6 +179,25 @@ class TestSquareleInstances(unittest.TestCase):
         s11.update(**my_dict)
         self.assertEqual(str(s11), "[Square] (26) 3/4 - 6")
 
+    def test_square_to_dict(self):
+        """
+        Test for the return value of to_dictionary.
+        
+        Dictionary must contain id, size, x and y attributes
+        """
+        s13 = Square(5, 1, 2, 8)
+        square_dict = s13.to_dictionary()
+        my_dict = {'id': 8, 'size': 5, 'x': 1, 'y': 2}
+        self.assertDictEqual(square_dict, my_dict)
+
+        s13.update(size=3)
+        square_dict_2 = s13.to_dictionary()
+        my_dict_2 = {'id': 8, 'size': 3, 'x': 1, 'y': 2}
+        self.assertTrue(square_dict_2, my_dict_2)
+
+        s14 = (square_dict_2)
+        self.assertNotEqual(s14, s13)
+
 
 if __name__ == '__main__':
     unittest.main()

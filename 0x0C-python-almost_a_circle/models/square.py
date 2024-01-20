@@ -90,3 +90,10 @@ class Square(Rectangle):
                     self.y = value
         else:
             pass
+    
+    def to_dictionary(self):
+        """
+        Reeturns the dictionary representation of Square
+        """
+
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
