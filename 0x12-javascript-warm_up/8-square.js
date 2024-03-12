@@ -4,11 +4,16 @@ const { argv } = require('node:process');
 const number = parseInt(argv[2], 10);
 
 if (isNaN(number)) {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 } else {
   let i = 0;
   while (i < number) {
-    console.log('C is fun');
+    let j = 0;
+    while (j < number) {
+      process.stdout.write('X');
+      j++;
+    }
+    console.log();
     i++;
   }
 }
