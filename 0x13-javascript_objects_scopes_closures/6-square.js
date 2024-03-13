@@ -18,13 +18,16 @@ class Square extends Rectangle {
      * prints the rectangle using c or X if c is undefined
      */
 
-    for (let i = 0; i < this.height; i++) {                 let row = '';                                         for (let j = 0; j < this.width; j++) {
+    for (let i = 0; i < this.height; i++) {
+      let row = '';
+      for (let j = 0; j < this.width; j++) {
         if (c === undefined) {
           row += 'X';
-	} else {
-	    row += c;
-	}
-      }                                                     console.log(row);
+        } else {
+          row += c;
+        }
+      }
+      console.log(row);
     }
   }
 }
