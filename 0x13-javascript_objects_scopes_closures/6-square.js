@@ -5,13 +5,9 @@
  * inherits from Rectangle
  */
 
-const Rectangle = require('./4-rectangle.js');
+const Square5 = require('./5-square.js');
 
-class Square extends Rectangle {
-  constructor (size) {
-    super(size, size);
-  }
-
+class Square extends Square5 {
   charPrint (c) {
     /**
      * Instance method
