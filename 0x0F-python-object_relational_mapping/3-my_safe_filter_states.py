@@ -41,12 +41,14 @@ def filter_states(cursor, state_name):
 
 def main():
     """Main function to handle program execution."""
-    if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py < mysql username >
-              < mysql password > < database name > < state name searched >")
-        exit(1)
+    cursor = None
+    db = None
+    username, password, database, state_name = sys.argv[1:]
 
-        username, password, database, state_name = sys.argv[1:]
+    if len(sys.argv) != 5:
+        print("""Usage: ./2-my_filter_states.py < mysql username >
+              < mysql password > < database name > < state name searched >""")
+        exit(1)
 
     try:
         db = connect_to_database(username, password, database)
