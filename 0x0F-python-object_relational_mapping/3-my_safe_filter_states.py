@@ -34,7 +34,7 @@ def filter_states(cursor, state_name):
 
     # Escape for SQL injection prevention
     sanitized_name = "%{}%".format(cursor.escape_string(state_name))
-    query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (sanitized_name,))
     return cursor.fetchall()
 
