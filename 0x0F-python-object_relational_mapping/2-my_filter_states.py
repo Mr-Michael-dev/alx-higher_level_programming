@@ -22,8 +22,10 @@ def main():
 
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE % s
-                ORDER BY id ASC", (sys.argv[4] + '%'))
+    sql = """SELECT * FROM states WHERE name LIKE BINARY '{}'
+          ORDER BY id ASC""".format(sys.argv[4])
+
+    cur.execute(sql)
 
     rows = cur.fetchall()
 
