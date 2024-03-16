@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 
 """
-lists all states from the database hbtn_0e_0_usa
+takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument
+
+Usage: ./2-my_filter_states.py <mysql username>
+       <mysql password> <database name> <state name searched>
 """
 if __name__ == "__main__":
     import MySQLdb
@@ -13,7 +17,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     cur.execute("SELECT * FROM states WHERE name LIKE
-                'sys.argv[4]%' ORDER BY id ASC")
+                %s ORDER BY id ASC", (sys.argv[4] + '%'))
 
     rows = cur.fetchall()
 
