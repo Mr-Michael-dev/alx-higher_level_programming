@@ -7,11 +7,6 @@ if __name__ == "__main__":
     import MySQLdb
     import sys
 
-    if len(sys.argv) != 4:
-        print("Usage: ./filename < mysql username >
-              < mysql password > < database name >")
-        exit(1)
-
     user, passwd, db_name = sys.argv[1:]
     db = MySQLdb.connect(host="localhost", port=3306, user=user,
                          passwd=passwd, db=db_name)
