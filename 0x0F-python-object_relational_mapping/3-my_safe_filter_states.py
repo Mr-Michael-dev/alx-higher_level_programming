@@ -29,12 +29,12 @@ def connect_to_database(username, password, database):
         exit(1)
 
 
-def filter_states(cursor, state_name):
+def filter_states(cursor, db, state_name):
     """Filters states based on the provided state name."""
 
     # Escape for SQL injection prevention
-    sanitized_name = "%{}%".format(cursor.escape_string(state_name))
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    sanitized_name = db.escape_string(state_name)
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
     cursor.execute(query, (sanitized_name,))
     return cursor.fetchall()
 
@@ -53,7 +53,7 @@ def main():
     try:
         db = connect_to_database(username, password, database)
         cursor = db.cursor()
-        results = filter_states(cursor, state_name)
+        results = filter_states(cursor, db, state_name)
 
         for row in results:
             print(row)
