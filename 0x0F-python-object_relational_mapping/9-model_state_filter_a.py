@@ -17,6 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).order_by(State.id).first()
+    state_with_a = session.query(State).filter(State.name.like('%a%')).all()
 
-    print(state)
+    for state in state_with_a:
+        print(state)
