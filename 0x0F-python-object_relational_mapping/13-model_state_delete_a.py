@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-changes the name of a State object from the database hbtn_0e_6_usa
+deletes all State objects with a name containing the letter a
+from the database hbtn_0e_6_usa
 """
 import sys
 from model_state import Base, State
@@ -18,7 +19,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state_to_update = session.query(State).filter(State.id == 2).first()
+    state_with_a = session.query(State).filter(State.name.like('%a%')).all()
 
-    state_to_update.name = 'New Mexico'
+    for state in state_with_a:
+        session.delete(state)
     session.commit()
