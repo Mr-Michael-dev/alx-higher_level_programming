@@ -8,13 +8,13 @@ then
 	exit 1
 fi
 
-#response_code=$(curl -sX GET "$1" -w "%{http_code]")
+response_code=$(curl -sX GET "$1" -w "%{http_code]")
 
-#if [ "$response_code" -ne 200 ];
-#then
-#	echo "Error: Server returned non-2-- status code: $response_code"
-#	exit 1
-#fi
+if [ "$response_code" -ne 200 ];
+then
+	echo "Error: Server returned non-2-- status code: $response_code"
+	exit 1
+fi
 
 response=$(curl -sX GET "$1")
 
