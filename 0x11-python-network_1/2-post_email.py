@@ -15,4 +15,4 @@ if __name__ == "__main__":
     with urlopen(req) as response:
         res = response.read()
 
-    print('Your email is: ', res.decode('utf-8'))
+    print(res.decode('utf-8'))
