@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Sends a request to the URL and displays
-the value of the X-Request-Id variable found in the header
+Sends a post request to the URL with email data and displays response body
 """
 from urllib.request import Request, urlopen
 import sys
