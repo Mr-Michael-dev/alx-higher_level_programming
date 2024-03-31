@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Takes in an url  and displays the value of X-Request-Id header"""
+"""Takes in an url  and displays the body of the response"""
 import requests
 import sys
 

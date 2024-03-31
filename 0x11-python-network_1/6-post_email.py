@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Takes in an url and email data to post
-displays the value of X-Request-Id header
+displays the body of the response
 """
 import requests
 import sys
