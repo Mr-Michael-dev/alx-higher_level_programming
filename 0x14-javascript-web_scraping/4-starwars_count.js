@@ -4,28 +4,36 @@
  */
 
 const request = require('request');
-const fs = require('fs')
+const apiUrl = process.argv[2];
+const characterId = 18;
 
-// API URL provided as the first argument
-const url = process.argv[2];
-const file = process.argv[3];
-
-// Character ID for "Wedge Antilles"
-// const characterId = 18;
-
-// Make a request to the API URL
-request(url, (err, response, body) => {
+request(apiUrl, (err, response, body) => {
   if (err) {
     console.error(err);
     return;
   }
 
-  const filmsData = JSON.parse(body);
+  let filmsData;
+  try {
+    filmsData = JSON.parse(body);
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return;
+  }
 
-  fs.writeFile(file, JSON.stringify(filmsData), (err) => {
-    if (err) {
-      console.error(err);
+  let count = 0;
+
+  const films = filmsData.results;
+
+  for (const film of films) {
+    // Check if the characters array includes Wedge Antilles
+    for (const character of film.characters) {
+      if (character === `https://swapi-api.alx-tools.com/api/people/${characterId}/`) {
+        count++;
+        break;
+      }
     }
-  });
-  // console.log(filmsData[1]);
+  }
+
+  console.log(count);
 });
