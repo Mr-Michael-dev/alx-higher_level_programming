@@ -1,5 +1,5 @@
 /*
- * fetches a URL using JQuery
+ * fetches character name from a URL using JQuery
  */
 
 $(function () { 
